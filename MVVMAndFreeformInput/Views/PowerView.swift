@@ -15,10 +15,16 @@ struct PowerView: View {
     //MARK: Computed Properties
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            // INPUT
+            TextField("Please ender a base for the power", text: $viewModel.providedBase)
+                .textFieldStyle(.roundedBorder)
+            
+            TextField("Please enter a exponet", text: $viewModel.providedExponent)
+            .textFieldStyle(.roundedBorder)
+            
+            // OUTPUT
+            Text("\(viewModel.power?.result)")
+            Text("\(viewModel.recoverySuggestion)")
         }
         .padding()
     }
