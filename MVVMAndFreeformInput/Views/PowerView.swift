@@ -11,7 +11,7 @@ struct PowerView: View {
     
     //MARK: Stored Properties
     @State var viewModel = PowerViewModel()
-
+    
     //MARK: Computed Properties
     var body: some View {
         VStack {
@@ -20,16 +20,19 @@ struct PowerView: View {
                 .textFieldStyle(.roundedBorder)
             
             TextField("Please enter a exponet", text: $viewModel.providedExponent)
-            .textFieldStyle(.roundedBorder)
+                .textFieldStyle(.roundedBorder)
             
             // OUTPUT
             Text("\(viewModel.power?.result)")
             Text("\(viewModel.recoverySuggestion)")
+            
+            if let power = viewModel.power {
+                Text ("Result is: \(power.result)")
+            }
+                .padding()
         }
-        .padding()
     }
 }
-
 #Preview {
     PowerView()
 }
